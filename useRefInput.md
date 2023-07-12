@@ -1,3 +1,6 @@
+#### the way we get value from input
+
+```js
 let passRef,emailRef=useRef();
 
 const SubmitData=async () => {
@@ -14,9 +17,10 @@ const SubmitData=async () => {
   emailRef.focus();
 }
 
-<>
 <input ref={(input)=>emailRef=input} placeholder="User Email" type="email"/>
 <input ref={(input)=>passRef=input} placeholder="User Password" type="password"/>
 
 <button onClick={SubmitData} >Submit</button>
-</>
+
+```
+[]
