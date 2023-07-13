@@ -1,4 +1,17 @@
 ## create a OtpComponent.js file
+
+> ## for dynamic number of value in the otp input
+```js
+let length = 4; // this can be passed as props
+let otpLength = Array.from({ length: length }, () => "");
+console.log(otpLength);
+const [inputValues, setInputValues] = useState(otpLength);
+
+```
+
+> # main code
+
+## create a OtpComponent.jsx file
 ```js
 import React, { useEffect, useRef, useState } from "react";
 import "./OtpComponent.css";
@@ -219,3 +232,5 @@ function App() {
 
 export default App;
 ```
+
+
