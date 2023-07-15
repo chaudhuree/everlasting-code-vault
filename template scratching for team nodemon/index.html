@@ -1,119 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>cart component</title>
 
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- bootstrap css -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <!-- font awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- style css -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="cart__page">
-      <div class="container">
-        <div class="shopping__cart__area">
-          <form action="">
-            <div class="row">
-              <div class="col-12">
-                <div class="table__desc">
-                  <div class="table-responsive">
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>Delete</th>
-                          <th class="">Image</th>
-                          <th class="d-none d-md-table-cell">Product</th>
-                          <th class="d-none d-md-table-cell">Price</th>
-                          <th>Quantity</th>
-                          <th>Total</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="product_remove">
-                            <a><i class="fa fa-trash-o"></i></a>
-                          </td>
-                          <td class="product_thumb">
-                            <a href="#"
-                              ><img
-                                src="https://bookhouse.com.bd/public/uploads/product/5ffc8f94-12de-11ec-b948-8de40cc0ba24.jpeg"
-                                alt="book image"
-                            /></a>
-                          </td>
-                          <td class="product_name d-none d-md-table-cell">
-                            <a class="product_name-data" href="#">
-                              ( A Celebration of Life ) বিজ্ঞানী মাকসুদুল আলম
-                              স্মরণগ্রন্থ Remembering Scientist Maqsudul Alam</a
-                            >
-                          </td>
-                          <td class="product_price d-none d-md-table-cell">
-                            ৳960
-                          </td>
-                          <td>1</td>
-                          <td>৳960</td>
-                        </tr>
-                        <tr>
-                          <td class="product_remove">
-                            <a><i class="fa fa-trash-o"></i></a>
-                          </td>
-                          <td class="product_thumb">
-                            <a href="#"
-                              ><img
-                                src="https://bookhouse.com.bd/public/uploads/product/70578736-112b-11ec-a920-5b2fc148e0fe.jpeg"
-                                alt="book image"
-                            /></a>
-                          </td>
-                          <td class="product_name d-none d-md-table-cell">
-                            <a class="product_name-data" href="#">
-                              মজলুম জননেতা মওলানা ভাসানী স্মারক - সংকলন</a
-                            >
-                          </td>
-                          <td class="product_price d-none d-md-table-cell">
-                            ৳230
-                          </td>
-                          <td>1</td>
-                          <td>৳230</td>
-                        </tr>
-                      </tbody>
-                    </table>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cart component</title>
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- bootstrap css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- style css -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="cart__page">
+    <div class="container">
+      <div class="shopping__cart__area">
+        <form action="">
+          <div class="row">
+            <div class="col-12">
+              <div class="table__desc">
+                <div class="table-responsive">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Delete</th>
+                        <th class="">Image</th>
+                        <th class="d-none d-md-table-cell">Product</th>
+                        <th class="d-none d-md-table-cell">Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="product_remove">
+                          <a><i class="fa fa-trash-o"></i></a>
+                        </td>
+                        <td class="product_thumb">
+                          <a href="#"><img
+                              src="https://bookhouse.com.bd/public/uploads/product/5ffc8f94-12de-11ec-b948-8de40cc0ba24.jpeg"
+                              alt="book image" /></a>
+                        </td>
+                        <td class="product_name d-none d-md-table-cell">
+                          <a class="product_name-data" href="#">
+                            ( A Celebration of Life ) বিজ্ঞানী মাকসুদুল আলম
+                            স্মরণগ্রন্থ Remembering Scientist Maqsudul Alam</a>
+                        </td>
+                        <td class="product_price d-none d-md-table-cell">
+                          ৳960
+                        </td>
+                        <td>1</td>
+                        <td>৳960</td>
+                      </tr>
+                      <tr>
+                        <td class="product_remove">
+                          <a><i class="fa fa-trash-o"></i></a>
+                        </td>
+                        <td class="product_thumb">
+                          <a href="#"><img
+                              src="https://bookhouse.com.bd/public/uploads/product/70578736-112b-11ec-a920-5b2fc148e0fe.jpeg"
+                              alt="book image" /></a>
+                        </td>
+                        <td class="product_name d-none d-md-table-cell">
+                          <a class="product_name-data" href="#">
+                            মজলুম জননেতা মওলানা ভাসানী স্মারক - সংকলন</a>
+                        </td>
+                        <td class="product_price d-none d-md-table-cell">
+                          ৳230
+                        </td>
+                        <td>1</td>
+                        <td>৳230</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- cart payment section -->
+          <div class="col-lg-6 col-md-6 offset-md-6">
+            <div class="coupon_code">
+              <h3>Cart Totals</h3>
+              <div class="coupon_inner">
+                <div class="cart_subtotal">
+                  <p>Subtotal</p>
+                  <p class="cart_amount">৳360</p>
+                </div>
+                <div class="cart_subtotal ">
+                  <p>Tax</p>
+                  <p class="cart_amount">৳0</p>
+                </div>
+                <div class="cart_subtotal">
+                  <p>Total</p>
+                  <p class="cart_amount">৳360</p>
+                </div>
+                <div class="cart__button-amount d-flex justify-content-between flex-column flex-md-row">
+                  <div class="checkout_btn mb-md-0 mb-2">
+                    <a style="background-color: #000;border-color: #000" href="#">Continue
+                      Shopping</a>
+                  </div>
+                  <div class="checkout_btn">
+                    <a href="#">Proceed to Checkout</a>
                   </div>
                 </div>
               </div>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
+  </div>
 
-    <!-- bootstrap js -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <!-- bootstrap js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
