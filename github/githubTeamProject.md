@@ -158,3 +158,17 @@ git push -u origin dev-one-branch
 - now jokhn pm development branch a gea check korbe then dekhte parbe j age j pull request ta chilo oita ase. then oitay click korle dekhte parbe kono conflict nai then merge pull request a click kore confirm korle development branch a devleoper one er code add hoye jabe,
 
 - sob pull request sesh a pm korbe ki development brach er code ta k clone or kicu akta kore test korbe.sob test sesh a main branch a pull request dibe.next main branch theke pull request ta accept korle kaj finish
+
+## to deleta a branch
+
+```bash
+git branch -d "branch name"
+// for force delete
+git branch -D "branch name"
+```
+
+## to create a branch with the same code of another branch
+
+```bash
+git checkout -b "new branch name" origin/"source branch name"
+```
