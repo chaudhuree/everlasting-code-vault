@@ -20,7 +20,7 @@
 git checkout -b "branch Name"
 ```
 
->example:
+> example:
 
 ```bash
 git checkout -b "development"
@@ -49,21 +49,21 @@ git push -u origin development
 
 ## now imagine korlam amader duijon developer ase.
 
-- develper one and developer two 
+- develper one and developer two
 
-- now, duita case hoite pare,like project manager already branch create kore diyeche. 
+- now, duita case hoite pare,like project manager already branch create kore diyeche.
 - secolndly knono branch create kore deynai.
 
 - now jodi branch already created thake tahole amader specific branch tar link dea dibe amra just clone kore niye amader kaj gulo korbo.
 - r jodi na create kore dey tahole main branch tai clone kore then git checkout -b "dev-one-branch " type bash command dea personal branch create kore kaj korte thakbo.
 
 - code push korar age obossoi terminal a dekhe nite hobe. branch konta te ache. jodi dekha jay bracket a likha ase (main) tahole obosshoi git checkout "dev-one-branch" aitay gea then push korte hobe.
-r jodi already dekhay j "dev-one-branch" a e ache then r kicu korte hobe na normally kaj korte parbe and push korte parbe.
+  r jodi already dekhay j "dev-one-branch" a e ache then r kicu korte hobe na normally kaj korte parbe and push korte parbe.
 
 - akhn dhori dev one tar branch a kicu code likhlo. then akhn she push korbe.
 
 - code like: index.html a akta form create korlo.
-- now jodi amra push korte chai. then just "git push" dea dei tahole akta waring dibe. oikhane likha thakbe 
+- now jodi amra push korte chai. then just "git push" dea dei tahole akta waring dibe. oikhane likha thakbe
 
 ```bash
 git push --set-upstream origin dev-one-branch
@@ -84,6 +84,7 @@ git push -u origin dev-one-branch
 - devloper two akta branch create kore nibe. dev-two-branch
 - then she akta file create korlo services.js
 - then aitay code korlo and push kore dilo
+
 ```bash
 git push -u origin dev-two-branch
 ```
@@ -92,11 +93,11 @@ git push -u origin dev-two-branch
 
 > akhn dori devloper one coding sesh a github a dhuklo. mane repository tay. so tokhn she dekhte parbe oikhane likha ase,
 
-```dev-one had recent pushed  and oitar pashe likha thakbe compare $ pull request.```
+`dev-one had recent pushed  and oitar pashe likha thakbe compare $ pull request.`
 
--now dhorlam amader project manager amader bole diyeche j obossoi pull request "development"  branch a korba . main a na.
+-now dhorlam amader project manager amader bole diyeche j obossoi pull request "development" branch a korba . main a na.
 
-- akhn jokhn developer one compare and pull request button a press korbe then pore page  a jabe
+- akhn jokhn developer one compare and pull request button a press korbe then pore page a jabe
 
 - oikhane dekhajabe upore duita button type ase .mane dropdown
 
@@ -111,8 +112,6 @@ git push -u origin dev-two-branch
 
 - same way te developer 2 o kaj kore dibe
 
-
-
 - now project manager jokhn develpment branch a jabe then upore likha dekhabe
 - pull request 2
 - oi button a clikh korle kon kon pull request ashce seta dekhte parbe
@@ -126,7 +125,8 @@ git push -u origin dev-two-branch
 
 - tokhn project manager developer one k knock dea bolbe vai tomar code conflick korce please check kore upload koro.
 
-- now, developer one nijer code folder  ashbe. and terminal a dibe 
+- now, developer one nijer code folder ashbe. and terminal a dibe
+
 ```bash
 git pull origin "j branch a pull korbe"
 // for our case
@@ -135,7 +135,7 @@ git pull  origin "development"
 
 - aita korar sathe sathe dekha jabe development branch er joto code cilo sob e tar own brach a chole ashbe. and ai khetre developer two er service.js file tao tar codebox a dekhte parbe.
 
-- now jehutu developer one index.html file tay code korce then dekah jabe oi file ta open hoye gece oikhane akta box er moto create hoice. 
+- now jehutu developer one index.html file tay code korce then dekah jabe oi file ta open hoye gece oikhane akta box er moto create hoice.
 - box er green part ta hoitice j developer one er code. and box er baki code hocce development branch theke pull kora jonne j code ashce mane jetar sthe conflict hoice.
 
 - now box tar akdom upore dekha jabe kicu option ashce. accept current change , accept incoming changes , accept both changes , compare changes
@@ -171,4 +171,10 @@ git branch -D "branch name"
 
 ```bash
 git checkout -b "new branch name" origin/"source branch name"
+```
+
+## suppose we have a git repo with many branch. we donot want to clone all the branch. we just want to clone a specific branch
+
+```bash
+git clone -b "branch name" "repo link"
 ```
