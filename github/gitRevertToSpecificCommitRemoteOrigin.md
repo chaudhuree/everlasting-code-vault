@@ -37,8 +37,8 @@ git push origin branch_name -f
 ```bash
 git revert HEAD
 # here HEAD means the last commit
-# press ctrl+c
-# then type :qa or the written command to exit from git revert window
-# press enter
+# a window will open
+# write the title and description of the commit
+# and close the window
 git push origin branch_name
 ```
