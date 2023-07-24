@@ -178,3 +178,11 @@ git checkout -b "new branch name" origin/"source branch name"
 ```bash
 git clone -b "branch name" "repo link"
 ```
+
+## git pullfrom a specific branch
+
+```bash
+git pull origin "branch name"
+# example
+git pull origin "developer-one"
+```
