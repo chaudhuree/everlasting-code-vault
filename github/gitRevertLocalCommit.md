@@ -5,4 +5,3 @@ git reset --hard HEAD~1
 ```
 
 ## unnecessary one
-## unnecessary two
