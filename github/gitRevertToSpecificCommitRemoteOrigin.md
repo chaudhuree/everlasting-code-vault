@@ -2,15 +2,16 @@
 
 - first i have to find the commit id of that code. for that i have to go to my github repo and then go to commit history. then i have to find the commit id of that code. then i have to copy that commit id. (1️⃣)
 
+> NOTE 🔔: aivabe revert korle amra j commit id dea revert korbo sudhu setar kajgulo git the remove hoye jabe but er age porer commit gulor code thik e thakbe
+
 ```bash
 git log
 # after that i have to copy the commit id
-#  press semicolon and enter to exit from git log
+# press q to exit from git log
 ```
 
 
 - then i have to go to my terminal and then i have to write this command
-  > git revert commit_id
 
 ```bash
 git revert commit_id
@@ -19,7 +20,7 @@ git revert commit_id
 # press enter
 ```
 - then i have to push the code in remote branch. for that i have to write this command
-  > git push origin branch_name
+  > git push origin branch_name -f
 - then i have to go to my github repo and then i have to check the commit history. then i have to see that the code is removed from my codebase.
 
 
@@ -40,5 +41,5 @@ git revert HEAD
 # press ctrl+c
 # then type :qa or the written command to exit from git revert window
 # press enter
-git push origin branch_name
+git push origin branch_name -f
 ```
