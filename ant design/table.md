@@ -25,6 +25,16 @@ const columns = [
       compare: (a, b) => a.user - b.user, //sort of text
       multiple: 2,
     },
+    {
+      title: "Age",
+      dataIndex: "age",
+      render: (age, record) => {
+        return <span>{record.age}</span>;
+        // here (age, record) is destructuring of (record.age, record)
+        // that means as dataIndex is "age" so the first argument of render function is "age" and the second argument is "record" object
+        // record object contains all the data of the row like, record.purpose, record.amount, record.user, record.age
+      },
+    }
   },
 ];
 ```
@@ -32,10 +42,10 @@ const columns = [
 ```js
 const data=[
   {
-    key: '1',
     purpose: 'Shopping',
     amount: 100,
     user: :"sohan",
+    age: 32,
   },
   ...
 ]
@@ -52,7 +62,9 @@ const onChange = (pagination, filters, sorter, extra) => {
   columns={columns}
   dataSource={data}
   onChange={onChange}
-  pagination={false}
+  pagination={{
+    pageSize: 2,
+  }}
   size="small"
 />
 ```
