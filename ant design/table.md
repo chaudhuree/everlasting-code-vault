@@ -15,7 +15,6 @@ const columns = [
     dataIndex: "amount",
     sorter: {
       compare: (a, b) => a.amount - b.amount, //sort of number
-      multiple: 2,
     },
   },
   {
@@ -23,7 +22,6 @@ const columns = [
     dataIndex: "user",
     sorter: {
       compare: (a, b) => a.user - b.user, //sort of text
-      multiple: 2,
     },
     {
       title: "Age",
