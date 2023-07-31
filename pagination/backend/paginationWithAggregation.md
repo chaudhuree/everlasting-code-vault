@@ -81,12 +81,12 @@ exports.adminList = async (req, res) => {
           $facet: {
             Total: [
               { $match: SearchQuery },
-              { $match: { role: { $eq: 0 } } },
+              { $match: { role: { $eq: 1 } } },
               { $count: "count" },
             ],
             Rows: [
               { $match: SearchQuery },
-              { $match: { role: { $eq: 0 } } },
+              { $match: { role: { $eq: 1 } } },
               { $skip: skipRow },
               { $limit: perPage },
             ],
@@ -97,7 +97,7 @@ exports.adminList = async (req, res) => {
       data = await User.aggregate([
         {
           $facet: {
-            Total: [{ $match: { role: { $eq: 0 } } }, { $count: "count" }],
+            Total: [{ $match: { role: { $eq: 1 } } }, { $count: "count" }],
             Rows: [
               { $match: { role: { $eq: 1 } } },
               { $skip: skipRow },
