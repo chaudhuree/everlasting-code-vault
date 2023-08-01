@@ -10,7 +10,7 @@ http://localhost:5000/api/v1/books/1/10/harry
 ```js
 exports.bookList=async (req, res) => {
   try {
-    const { page, pageSize, search } = req.params;
+    const { page, pageSize, search,shipping } = req.params;
 
     // Convert page and pageSize to integers
     const pageNumber = Number(page) || 1;
@@ -26,14 +26,15 @@ exports.bookList=async (req, res) => {
 
     // query multiple fields
   const query = {};
+  query.shipping = shipping;
   if (search && search !== '0') {
   const searchRgx = new RegExp(search, 'i');
 
   query.$or = [
     { title: { $regex: searchRgx } },   // Case-insensitive search in the 'title' field
-    // { title: searchRgx  },   //if uppoer line not work then use this line
-    { author: { $regex: searchRgx } },  // Case-insensitive search in the 'author' field
-    { category: { $regex: searchRgx } },// Case-insensitive search in the 'category' field
+    //✅✅ { title: searchRgx  },   //if uppoer line not work then use this line
+    { author: { $regex: searchRgx } }, 
+    { category: { $regex: searchRgx } },
     // Add more fields as needed for your search
   ];
 }
