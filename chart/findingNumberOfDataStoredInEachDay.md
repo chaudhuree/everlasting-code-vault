@@ -100,13 +100,12 @@ Order.find({ createdAt: { $gte: sevenDaysAgo, $lte: currentDate } })
 ## this will format like this
 ## [ { count: 8, day: 'Tuesday' } ]
 const currentDate = new Date();
-const startOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-const endOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+const sevenDaysAgo = new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000);
 
 const data = await Order.aggregate([
   {
     $match: {
-      createdAt: { $gte: startOfMonth, $lte: endOfMonth }
+      createdAt: { $gte: sevenDaysAgo, $lte: currentDate }
     }
   },
   {
@@ -137,10 +136,13 @@ const data = await Order.aggregate([
   }
 ]);
 
+
 ```
 
 ***
 ## data stored in month wise
+// how many data stored in each month
+
 
 ```js
 const currentDate = new Date();
@@ -205,6 +207,7 @@ Order.aggregate([
 ***
 
 ## data stored in year wise
+// how many data stored in each year
 
 ```js
 // Calculate the date for 5 years ago from the current date
@@ -312,4 +315,38 @@ console.log('data', data);
   { status: "Pending", count: 1 },
   { status: "Delivered", count: 1 }
 ]
+```
+
+## get order status for current days
+
+```js
+const currentDate = new Date();
+  const startOfDay = new Date(currentDate);
+  startOfDay.setHours(0, 0, 0, 0);
+  const endOfDay = new Date(currentDate);
+  endOfDay.setHours(23, 59, 59, 999);
+
+  const data = await Order.aggregate([
+    {
+      $match: {
+        $or: [
+          { createdAt: { $gte: startOfDay, $lte: endOfDay } },
+          { updatedAt: { $gte: startOfDay, $lte: endOfDay } },
+        ],
+      },
+    },
+    {
+      $group: {
+        _id: "$status",
+        count: { $sum: 1 },
+      },
+    },
+    {
+      $project: {
+        _id: 0,
+        status: "$_id",
+        count: 1,
+      },
+    },
+  ]);
 ```
