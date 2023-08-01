@@ -22,6 +22,36 @@ db.collection.aggregate([
 ])
 
 ```
+> for seven days from now on
+
+```js
+const currentDate = new Date();
+const sevenDaysAgo = new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000);
+
+db.collection.aggregate([
+  {
+    $match: {
+      createdAt: { $gte: sevenDaysAgo, $lte: currentDate }
+    }
+  },
+  {
+    $project: {
+      createdAt: 1,
+      yearMonthDay: { $dateToString: { format: "%Y-%m-%d", date: "$createdAt" } }
+    }
+  },
+  {
+    $group: {
+      _id: "$yearMonthDay",
+      count: { $sum: 1 }
+    }
+  },
+  {
+    $sort: { _id: 1 }
+  }
+]);
+
+```
 
 ## data stored in last seven days for each day
 
@@ -95,10 +125,12 @@ Order.find({ createdAt: { $gte: sevenDaysAgo, $lte: currentDate } })
     console.error('Error fetching data:', error);
   });
 ```
+***
+---
 
-```js
-## this will format like this
+## this will format like this for last seven days
 ## [ { count: 8, day: 'Tuesday' } ]
+```js
 const currentDate = new Date();
 const sevenDaysAgo = new Date(currentDate.getTime() - 7 * 24 * 60 * 60 * 1000);
 
@@ -208,6 +240,10 @@ Order.aggregate([
 
 ## data stored in year wise
 // how many data stored in each year
+// if we have two data model like for subscriber and unscribe
+// that means when a subscriber subscribe then we store the data in subscriber model
+// and when a subscriber unsubscribe then we store the data in unsubscriber model and remove it from subscriber model
+// then we can use this type of query
 
 ```js
 // Calculate the date for 5 years ago from the current date
