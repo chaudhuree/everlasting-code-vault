@@ -26,7 +26,7 @@ function App() {
           <Route
             path="/"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute path='/'>
                 <Homepage />
               </ProtectedRoute>
             }
@@ -35,7 +35,7 @@ function App() {
           <Route
             path="/items"
             element={
-              <AdminRoute>
+              <AdminRoute path="/items">
                 <ItemPage />
               </AdminRoute>
             }
@@ -43,7 +43,7 @@ function App() {
           <Route
             path="/cart"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute path="/cart">
                 <CartPage />
               </ProtectedRoute>
             }
@@ -51,7 +51,7 @@ function App() {
           <Route
             path="/bills"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute path="/bills">
                 <BillsPage />
               </ProtectedRoute>
             }
@@ -59,7 +59,7 @@ function App() {
           <Route
             path="/customers"
             element={
-              <AdminRoute>
+              <AdminRoute path="/customers">
                 <CutomerPage />
               </AdminRoute>
             }
@@ -67,7 +67,7 @@ function App() {
           <Route
             path="/item/:id"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute path="/item/:id">
                 <SingleItemPage />
               </ProtectedRoute>
             }
@@ -84,10 +84,11 @@ function App() {
 
 export default App;
 
-export function ProtectedRoute({ children }) {
+export function ProtectedRoute({ children,path }) {
   if (localStorage.getItem("auth")) {
     return children;
   } else {
+    localStorage.setItem("intendedRoute", path);
     return <Navigate to="/loginreg" />;
   }
 }
@@ -97,7 +98,22 @@ export function AdminRoute({ children }) {
   if (user.user?.role === 1) {
     return children;
   } else {
+    localStorage.setItem("intendedRoute", path);
     return <Navigate to="/" />;
   }
 }
+```
+
+## Login page
+
+```js 
+import {useNavigate} from 'react-router-dom'
+  const handleLogin = () => {
+    const navigate = useNavigate();
+    // Perform login logic here
+
+    // Redirect to the intended route or a default route
+    const intendedRoute = localStorage.getItem("intendedRoute") || "/";
+    navigate(intendedRoute);
+  };
 ```
