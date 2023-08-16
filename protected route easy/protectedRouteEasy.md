@@ -26,7 +26,7 @@ function App() {
           <Route
             path="/"
             element={
-              <ProtectedRoute path='/'>
+              <ProtectedRoute path="/">
                 <Homepage />
               </ProtectedRoute>
             }
@@ -84,7 +84,7 @@ function App() {
 
 export default App;
 
-export function ProtectedRoute({ children,path }) {
+export function ProtectedRoute({ children, path }) {
   if (localStorage.getItem("auth")) {
     return children;
   } else {
@@ -106,14 +106,24 @@ export function AdminRoute({ children }) {
 
 ## Login page
 
-```js 
-import {useNavigate} from 'react-router-dom'
-  const handleLogin = () => {
-    const navigate = useNavigate();
-    // Perform login logic here
+```js
+import { useNavigate } from "react-router-dom";
+const handleLogin = () => {
+  const navigate = useNavigate();
+  // Perform login logic here
 
-    // Redirect to the intended route or a default route
-    const intendedRoute = localStorage.getItem("intendedRoute") || "/";
-    navigate(intendedRoute);
-  };
+  // Redirect to the intended route or a default route
+  const intendedRoute = localStorage.getItem("intendedRoute") || "/";
+  navigate(intendedRoute);
+};
+```
+
+## Logout
+
+```js
+const handleLogout = () => {
+  localStorage.removeItem("auth");
+  localStorage.removeItem("intendedRoute");
+  navigate("/login");
+};
 ```
