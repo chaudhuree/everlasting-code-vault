@@ -29,7 +29,15 @@ if(pathName === "/profile"){
 router.push("/dashboard");
 
 ```
-
+## params 
+```js
+// app>portfolio>[category]
+// localhost:3000/portfolio/webdeveloper
+// localhost:3000/portfolio/digitalmarketer
+const Page=({params})=>{
+    console.log(params) // webdeveloper, digitalmarketer
+}
+```
 ## Image in Next.js 13.4
 
 ```js
