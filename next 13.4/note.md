@@ -12,7 +12,7 @@ const paramsValue = params.get("name");
 const id = params.get("id");
 ```
 
-## for route
+## url params route
 
 ```js
 // /api/posts?username=${session?.data?.user.name}
@@ -47,6 +47,16 @@ router.push("/dashboard");
 // localhost:3000/portfolio/digitalmarketer
 const Page=({params})=>{
     console.log(params.category) // webdeveloper, digitalmarketer
+}
+```
+
+## params route
+```js
+// app>api>post>[id]
+// localhost:3000/api/post/1
+// localhost:3000/api/post/2
+export const GET = async (request, { params }) => {
+    const {id} = params;
 }
 ```
 ## Image in Next.js 13.4
