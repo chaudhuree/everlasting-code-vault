@@ -12,6 +12,17 @@ const paramsValue = params.get("name");
 const id = params.get("id");
 ```
 
+## for route
+
+```js
+// /api/posts?username=${session?.data?.user.name}
+export const GET = async (request) => {
+    const url = new URL(request.url);
+    const username = url.searchParams.get("username");
+
+}
+```
+
 ## pathname and route in Next.js 13.4
 
 ```js
@@ -35,7 +46,7 @@ router.push("/dashboard");
 // localhost:3000/portfolio/webdeveloper
 // localhost:3000/portfolio/digitalmarketer
 const Page=({params})=>{
-    console.log(params) // webdeveloper, digitalmarketer
+    console.log(params.category) // webdeveloper, digitalmarketer
 }
 ```
 ## Image in Next.js 13.4
@@ -123,6 +134,34 @@ export const metadata = {
 }
 ```
 
+## dynamic metadata
+
+```js
+// like if i have a blog website. now when i click on a blog it opens.
+// now i must want to see it's title in the website title.
+// so the post is dynamic because of id so i can fetch the data there and
+// show it's title in the website
+
+async function getData(id) {
+    const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+        cache: "no-store",
+    });
+
+    if (!res.ok) {
+        return notFound()
+    }
+
+    return res.json();
+}
+export async function generateMetadata({ params }) {
+    const data= getData(params.id)
+    return {
+        title: {data.title},
+        description: {data.description}
+    }
+}
+```
+
 ## Next Fonts in Next.js 13.4
  
 ```js
@@ -133,7 +172,7 @@ const ubuntu = Ubuntu({
     subsets: ['latin'],
 })
 const roboto = Roboto({
-    weight: ['400', '700'],
+    weight: ['400', '700'],[codium-ai-plugin-0.5.28.zip](..%2F..%2F..%2F..%2Fdownload%2Fcodium-ai-plugin-0.5.28.zip)
     subsets: ['latin'],
     
 })
