@@ -167,7 +167,7 @@ export default {
         card: "url('assets/images/thumbnail-background.svg')", // use case bg-card
       },
       screens: {
-        wide: "1440px", // use case max-w-wide
+        wide: "1440px", // wide:px-16 sm:px-8 like this
       },
     },
   },
