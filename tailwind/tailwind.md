@@ -10,6 +10,14 @@ min-h-screen means min-height: 100vh
 xl:whitespace-nowrap means in xl screen text will not wrap in this case position should be relative and z-index should be higher
 ```
 
+```css
+break-words means if text is too long then it will break the word
+```
+
+```css
+leading-7 means line-height: 1.75rem
+```
+
 
 ```css
 max-md means max-width: 768px
