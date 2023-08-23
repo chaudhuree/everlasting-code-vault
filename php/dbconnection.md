@@ -262,6 +262,7 @@ if (isset($_POST["submit"])) {
 <?php
 // defining global constants
 define("APPURL", "http://localhost/restaurant_app");
+// this is the base url. this is usded to locate the css or js files that are in the public folder
 ?>
 <!DOCTYPE html>
 <html lang="en">
