@@ -357,3 +357,71 @@ disableFilters: true
   disableFilters: true
 }
 ```
+
+
+## more on filterign(advanced)
+
+- now we have to put Filters on every column by coding ourself. but we can do this by default.
+
+- first create a defaultColumn function
+
+```js
+  const defaultColumn = React.useMemo(
+    () => ({
+      Filter: ColumnFilter
+    }),
+    []
+  )
+  ```
+
+  - now put this in the useTable hook like this
+
+  ```js
+  const { 
+    state,
+    setGlobalFilter
+  } = useTable({
+    columns: COLUMNS,
+    data: MOCK_DATA,
+    defaultColumn // this is the default column
+  }, useFilters, useGlobalFilter)
+  ```
+
+  - now we can remove the Filters item in each column
+
+  ```js
+  {
+    Header: 'Id',
+    accessor: 'id',
+    disableFilters: true
+  },
+  {
+    Header: 'First Name',
+    accessor: 'first_name',
+  }
+  ```
+
+  #### for better performance we can edit the GlobalFilter component
+
+  ```js
+  import React,{useState} from 'react'
+  import { useAsyncDebounce } from 'react-table'
+
+  export const GlobalFilter = ({ filter, setFilter }) => {
+    const [value, setValue] = useState(filter)
+
+    const onChange = useAsyncDebounce(value => {
+      setFilter(value || undefined)
+    }, 200)
+
+    return (
+      <span>
+        Search: {' '}
+        <input value={value || ''} onChange={e => {
+          setValue(e.target.value)
+          onChange(e.target.value)
+        }} />
+      </span>
+    )
+  }
+  ```
