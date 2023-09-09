@@ -337,3 +337,23 @@ const {
   <div>{column.canFilter ? column.render('Filter') : null}</div>
 </th>
 ```
+
+
+## to diable filter on some column
+
+- add this code in the column
+
+```js
+disableFilters: true
+```
+
+> example:
+
+```js
+{
+  Header: 'Id',
+  accessor: 'id',
+  Filter: ColumnFilter,
+  disableFilters: true
+}
+```
