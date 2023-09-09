@@ -425,3 +425,74 @@ disableFilters: true
     )
   }
   ```
+
+
+  ## basic pagination
+
+  - import usePagination from react-table
+  - pass this in the useTable hook
+
+  ```js
+  const { 
+    state,
+    setGlobalFilter
+  } = useTable({
+    columns: COLUMNS,
+    data: MOCK_DATA,
+  },usePagination)
+  ```
+
+  - destructure this following
+
+  ```js
+  const {
+    page,
+      nextPage,
+      previousPage,
+      canPreviousPage,
+      canNextPage,
+      pageOptions,
+      state,
+  } =useTable({
+      columns: COLUMNS,
+      data: MOCK_DATA,
+    },usePagination)
+  ```
+- from state destructure pagerIndex for current page number
+  
+  ```js
+   const { pageIndex } = state;
+  ```
+- replace row with page in table body
+```js
+<tbody {...getTableBodyProps()}>
+          {page?.map((row) => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell) => {
+                  return (
+                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                  );
+                })}
+              </tr>
+            );
+          })}
+  </tbody>
+```
+- add this code below  the table for pagination
+
+```js
+  <div style={{margin:"10px",textAlign:"center"}}>
+        <span>
+          <strong>{pageIndex + 1}</strong> of {pageOptions.length}
+        </span>{" "}
+        {""}
+        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+          Previous
+        </button>{" "}
+        <button onClick={() => nextPage()} disabled={!canNextPage}>
+          Next
+        </button>
+  </div>
+```
