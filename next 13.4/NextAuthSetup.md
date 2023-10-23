@@ -68,8 +68,6 @@ export default User;
 ```js
 // route.js
 
-// route.js
-
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
