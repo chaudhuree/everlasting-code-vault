@@ -194,3 +194,9 @@ git pull origin "branch name"
 # example
 git pull origin "developer-one"
 ```
+
+
+#### to check all branch(majhe majhe sob branch dekha jay na tokhn aivabe korte hobe)
+```
+git branch -a
+```
