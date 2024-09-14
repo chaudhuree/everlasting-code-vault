@@ -19,6 +19,10 @@
 ```bash
 git checkout -b "branch Name"
 ```
+- branch ta local pc te ase akhn branch ta github a push korte nicher command
+```bash
+git push -u origin "branch Name"
+```
 
 > example:
 
