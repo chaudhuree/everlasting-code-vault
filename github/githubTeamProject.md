@@ -29,7 +29,11 @@ git push -u origin "branch Name"
 ```bash
 git checkout -b "development"
 ```
-
+- onno kono akta branch theke new brach korte chaile
+  
+```bash
+git checkout -b ＜new-branch＞ ＜existing-branch＞
+```
 - ai command er por development name a akta branch create hoye jabe and automatically oi branch a chole jabe user.
 
 - akhn dhori index file tay akta kicu likhlam. like, "new branch created".
